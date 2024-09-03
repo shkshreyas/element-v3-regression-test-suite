@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightwatch findAll Command Test Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .box { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Page for Nightwatch findAll Command</h1>
+        
+        <div class="box" id="single-element">
+            <p>This is a single paragraph element.</p>
+        </div>
+        
+        <div class="box" id="multiple-elements">
+            <p>First paragraph</p>
+            <p>Second paragraph</p>
+            <p>Third paragraph</p>
+        </div>
+        
+        <div class="box" id="nested-elements">
+            <div>
+                <p>Nested paragraph 1</p>
+                <p>Nested paragraph 2</p>
+            </div>
+        </div>
+        
+        <div class="box" id="element-with-class">
+            <p class="special-text">This paragraph has a special class.</p>
+        </div>
+        
+        <div class="box" id="empty-div"></div>
+
+        <div class="box" id="buttons-container">
+            <button class="submit-form">Submit 1</button>
+            <button class="submit-form">Submit 2</button>
+            <button class="cancel-form">Cancel</button>
+        </div>
+
+        <div class="box" id="mixed-elements">
+            <p>Paragraph 1</p>
+            <span>Span 1</span>
+            <p>Paragraph 2</p>
+            <span>Span 2</span>
+        </div>
+
+        <section class="box">
+            <h2>Section 1</h2>
+            <p>Content of section 1</p>
+        </section>
+
+        <section class="box">
+            <h2>Section 2</h2>
+            <p>Content of section 2</p>
+        </section>
+    </div>
+</body>
+</html>
