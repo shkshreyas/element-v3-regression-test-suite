@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightwatch Commands Test Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .section { border: 1px solid #ddd; padding: 10px; margin-bottom: 20px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Comprehensive Test Page for Nightwatch Commands</h1>
+        
+        <div class="section" id="alt-text-section">
+            <h2>Alt Text Tests</h2>
+            <img src="placeholder0.jpg" alt="foobar">
+            <img src="placeholder1.jpg" alt="A group of people sitting in front of a computer">
+            <img src="placeholder2.jpg" alt="Another group of people">
+            <img src="placeholder3.jpg" alt="A single person working">
+            <img src="placeholder4.jpg" alt="Group photo">
+            <img src="placeholder5.jpg" alt="Group photo">
+            <img src="placeholder6.jpg" alt="">
+            <div><img src="placeholder7.jpg" alt="Nested image"></div>
+        </div>
+        
+        <div class="section" id="placeholder-section">
+            <h2>Placeholder Tests</h2>
+            <input type="text" placeholder="Search here">
+            <input type="number" placeholder="Enter the number">
+            <input type="email" placeholder="Enter your email">
+            <input type="email" placeholder="Enter your email">
+            <textarea placeholder="Write your message here"></textarea>
+            <input type="text" placeholder="">
+            <div><input type="text" placeholder="Nested input"></div>
+        </div>
+        
+        <div class="section" id="role-section">
+            <h2>Role Tests</h2>
+            <div role="combobox" aria-expanded="true">Combobox</div>
+            <h3 role="heading" aria-level="3">Level 3 Heading</h3>
+            <button role="button" aria-pressed="true">Pressed Button</button>
+            <div role="alert">This is an alert</div>
+            <div role="checkbox" aria-checked="true">Checked checkbox</div>
+            <div role="checkbox" aria-checked="false">Unchecked checkbox</div>
+            <div role="tab" aria-selected="true">Selected Tab</div>
+            <div role="tab" aria-selected="false">Unselected Tab</div>
+            <div role="tree">
+                <div role="treeitem" aria-expanded="true">Expanded Tree Item</div>
+                <div role="treeitem" aria-expanded="false">Collapsed Tree Item</div>
+            </div>
+        </div>
+        
+        <div class="section" id="label-section">
+            <h2>Label Tests</h2>
+            <label for="name-input">Enter your name:</label>
+            <input id="name-input" type="text">
+            <label for="email-input">Enter your email:</label>
+            <input id="email-input" type="email">
+            <label>
+                <input type="checkbox"> I agree to the terms
+            </label>
+            <label for="hidden-input" class="hidden">Hidden Label</label>
+            <input id="hidden-input" type="text" class="hidden">
+            <fieldset>
+                <legend>Choose your favorite color:</legend>
+                <label><input type="radio" name="color" value="red"> Red</label>
+                <label><input type="radio" name="color" value="blue"> Blue</label>
+            </fieldset>
+        </div>
+        
+        <div class="section" id="text-section">
+            <h2>Text Tests</h2>
+            <p>This is a paragraph with some text.</p>
+            <p>Another paragraph with different text.</p>
+            <span>This is a span element.</span>
+            <div>This is a div with text content.</div>
+            <div>This div 1</div>
+            <div>This div 1</div>
+            <button>Click me</button>
+            <div>Text with <b>bold</b> and <i>italic</i> parts</div>
+            <div class="hidden">Hidden text</div>
+            <div>Text with unicode: こんにちは</div>
+        </div>
+    </div>
+</body>
+</html>
