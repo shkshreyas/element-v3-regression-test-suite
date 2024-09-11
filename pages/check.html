@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightwatch check() Command Test Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .section { border: 1px solid #ddd; padding: 10px; margin-bottom: 20px; }
+        .hidden { display: none; }
+        .offscreen { position: absolute; left: -9999px; }
+        .scrollable { height: 200px; overflow-y: scroll; padding: 10px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Page for Nightwatch check() Command</h1>
+        
+        <div class="section" id="checkbox-section">
+            <h2>Checkbox Tests</h2>
+            <label><input type="checkbox" id="checkbox1"> Unchecked Checkbox</label><br>
+            <label><input type="checkbox" id="checkbox2" checked> Checked Checkbox</label><br>
+            <label><input type="checkbox" id="checkbox3" disabled> Disabled Checkbox</label><br>
+            <label class="hidden"><input type="checkbox" id="hidden-checkbox" checked> Hidden Checkbox</label><br>
+            <label><input type="checkbox" id="offscreen-checkbox" class="offscreen" checked> Offscreen Checkbox</label>
+        </div>
+        
+        <div class="section" id="radio-section">
+            <h2>Radio Button Tests</h2>
+            <fieldset>
+                <legend>Choose an option:</legend>
+                <label><input type="radio" name="radio-group1" id="radio1" value="option1"> Option 1</label><br>
+                <label><input type="radio" name="radio-group1" id="radio2" value="option2" checked> Option 2</label><br>
+                <label><input type="radio" name="radio-group1" id="radio3" value="option3" disabled> Option 3</label>
+            </fieldset>
+        </div>
+        
+        <div class="section scrollable" id="scroll-section">
+            <h2>Scrollable Section</h2>
+            <p>Scroll down to see more checkboxes</p>
+            <div style="height: 300px;"></div>
+            <label><input type="checkbox" id="scroll-checkbox"> Checkbox after scroll</label>
+        </div>
+        
+        <div class="section" id="dynamic-section">
+            <h2>Dynamic Checkbox</h2>
+            <button id="add-checkbox">Add Checkbox</button>
+            <div id="dynamic-checkbox-container"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('add-checkbox').addEventListener('click', function() {
+            const container = document.getElementById('dynamic-checkbox-container');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = 'dynamic-checkbox';
+            const label = document.createElement('label');
+            label.appendChild(checkbox);
+            label.appendChild(document.createTextNode(' Dynamically added checkbox'));
+            container.appendChild(label);
+        });
+    </script>
+</body>
+</html>
