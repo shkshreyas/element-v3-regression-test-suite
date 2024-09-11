@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightwatch Element Commands Test Page</title>
+    <style>
+        .container { margin: 20px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul id="parent-list">
+            <li>First Child</li>
+            <li>Middle Child</li>
+            <li>Last Child</li>
+        </ul>
+
+        <div id="sibling-container">
+            <p>First Paragraph</p>
+            <p>Second Paragraph</p>
+            <p>Third Paragraph</p>
+        </div>
+
+        <div id="empty-container"></div>
+
+        <template id="shadow-host">
+            <div>
+                <p>Shadow DOM content</p>
+            </div>
+        </template>
+    </div>
+
+    <script>
+        // Create a shadow root
+        const shadowHost = document.getElementById('shadow-host');
+        const shadowRoot = shadowHost.attachShadow({mode: 'open'});
+        shadowRoot.innerHTML = '<p>Shadow DOM paragraph</p>';
+    </script>
+</body>
+</html>
