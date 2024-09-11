@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightwatch click() Command Test Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .section { border: 1px solid #ddd; padding: 10px; margin-bottom: 20px; }
+        .hidden { display: none; }
+        .offscreen { position: absolute; left: -9999px; }
+        .scrollable { height: 200px; overflow-y: scroll; padding: 10px; border: 1px solid #ccc; }
+        #click-counter { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Page for Nightwatch click() Command</h1>
+        
+        <div class="section" id="button-section">
+            <h2>Button Tests</h2>
+            <button id="normal-button">Normal Button</button>
+            <button id="disabled-button" disabled>Disabled Button</button>
+            <div><button id="nested-button">Nested Button</button></div>
+            <button id="hidden-button" class="hidden">Hidden Button</button>
+            <button id="offscreen-button" class="offscreen">Offscreen Button</button>
+        </div>
+        
+        <div class="section" id="link-section">
+            <h2>Link Tests</h2>
+            <a href="#" id="normal-link">Normal Link</a><br>
+            <a href="#" id="styled-link" style="padding: 10px; background-color: #f0f0f0;">Styled Link</a>
+        </div>
+        
+        <div class="section scrollable" id="scroll-section">
+            <h2>Scrollable Section</h2>
+            <p>Scroll down to see more buttons</p>
+            <div style="height: 300px;"></div>
+            <button id="scroll-button">Button after scroll</button>
+        </div>
+        
+        <div class="section" id="dynamic-section">
+            <h2>Dynamic Button</h2>
+            <button id="add-button">Add Button</button>
+            <div id="dynamic-button-container"></div>
+        </div>
+
+        <div class="section" id="event-section">
+            <h2>Event Testing</h2>
+            <button id="event-button">Click Me</button>
+            <p>Click count: <span id="click-counter">0</span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('add-button').addEventListener('click', function() {
+            const container = document.getElementById('dynamic-button-container');
+            const button = document.createElement('button');
+            button.id = 'dynamic-button';
+            button.textContent = 'Dynamically added button';
+            container.appendChild(button);
+        });
+
+        let clickCount = 0;
+        document.getElementById('event-button').addEventListener('click', function() {
+            clickCount++;
+            document.getElementById('click-counter').textContent = clickCount;
+        });
+    </script>
+</body>
+</html>
