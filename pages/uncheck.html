@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightwatch uncheck() Command Test Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .section { border: 1px solid #ddd; padding: 10px; margin-bottom: 20px; }
+        .hidden { display: none; }
+        .offscreen { position: absolute; left: -9999px; }
+        .scrollable { height: 200px; overflow-y: scroll; padding: 10px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Page for Nightwatch uncheck() Command</h1>
+        
+        <div class="section" id="checkbox-section">
+            <h2>Checkbox Tests</h2>
+            <label><input type="checkbox" id="checked-checkbox" checked> Checked Checkbox</label><br>
+            <label><input type="checkbox" id="unchecked-checkbox"> Unchecked Checkbox</label><br>
+            <label><input type="checkbox" id="disabled-checkbox" disabled checked> Disabled Checkbox</label><br>
+            <label class="hidden"><input type="checkbox" id="hidden-checkbox" checked> Hidden Checkbox</label><br>
+            <label><input type="checkbox" id="offscreen-checkbox" class="offscreen" checked> Offscreen Checkbox</label>
+        </div>
+        
+        <div class="section" id="radio-section">
+            <h2>Radio Button Tests</h2>
+            <fieldset>
+                <legend>Choose an option:</legend>
+                <label><input type="radio" name="radio-group1" id="radio1" value="option1" checked> Option 1</label><br>
+                <label><input type="radio" name="radio-group1" id="radio2" value="option2"> Option 2</label><br>
+                <label><input type="radio" name="radio-group1" id="radio3" value="option3" disabled> Option 3</label>
+            </fieldset>
+        </div>
+        
+        <div class="section scrollable" id="scroll-section">
+            <h2>Scrollable Section</h2>
+            <p>Scroll down to see more checkboxes</p>
+            <div style="height: 300px;"></div>
+            <label><input type="checkbox" id="scroll-checkbox" checked> Checkbox after scroll</label>
+        </div>
+        
+        <div class="section" id="form-section">
+            <h2>Form Test</h2>
+            <form id="checkbox-form">
+                <label><input type="checkbox" id="form-checkbox" checked> Form Checkbox</label>
+                <button type="submit">Submit</button>
+            </form>
+            <p id="form-output"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('checkbox-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const checkbox = document.getElementById('form-checkbox');
+            document.getElementById('form-output').textContent = 'Form submitted. Checkbox is ' + (checkbox.checked ? 'checked' : 'unchecked');
+        });
+    </script>
+</body>
+</html>
