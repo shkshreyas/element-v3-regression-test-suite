@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightwatch setProperty() Command Test Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .section { border: 1px solid #ddd; padding: 10px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Page for Nightwatch setProperty() Command</h1>
+        
+        <div class="section" id="input-section">
+            <h2>Input Element Tests</h2>
+            <input type="text" id="text-input" value="Initial value">
+            <input type="checkbox" id="checkbox-input">
+            <input type="number" id="number-input" value="42">
+        </div>
+        
+        <div class="section" id="select-section">
+            <h2>Select Element Test</h2>
+            <select id="select-element">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+        </div>
+        
+        <div class="section" id="textarea-section">
+            <h2>Textarea Element Test</h2>
+            <textarea id="textarea-element">Initial text</textarea>
+        </div>
+        
+        <div class="section" id="custom-element-section">
+            <h2>Custom Element Test</h2>
+            <div id="custom-element" tabindex="0">Custom element</div>
+        </div>
+        
+        <div class="section" id="react-to-change-section">
+            <h2>React to Property Change Test</h2>
+            <button id="reactive-button">Click me</button>
+            <p id="reaction-output"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('reactive-button').addEventListener('click', function() {
+            document.getElementById('reaction-output').textContent = 'Button clicked!';
+        });
+
+        const reactiveButton = document.getElementById('reactive-button');
+        Object.defineProperty(reactiveButton, 'customProperty', {
+            set: function(value) {
+                document.getElementById('reaction-output').textContent = 'Custom property set: ' + value;
+            }
+        });
+    </script>
+</body>
+</html>
