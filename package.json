@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start-server": "http-server ./pages -p 8080",
-    "test": "npx nightwatch ./test/"
+    "test": "npx nightwatch ./test/ --chrome",
+    "ci-test": "start-server-and-test start-server http://127.0.0.1:8080 test"
   },
   "author": "Aniket Singh Rawat",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "nightwatch": "^3.7.0"
   },
   "dependencies": {
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "start-server-and-test": "^2.0.7"
   }
 }
