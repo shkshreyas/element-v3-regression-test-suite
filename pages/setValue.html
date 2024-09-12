@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightwatch setValue() Command Test Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .section { border: 1px solid #ddd; padding: 10px; margin-bottom: 20px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Page for Nightwatch setValue() Command</h1>
+        
+        <div class="section" id="input-section">
+            <h2>Input Element Tests</h2>
+            <input type="text" id="text-input" placeholder="Enter text">
+            <input type="number" id="number-input" placeholder="Enter number">
+            <input type="email" id="email-input" placeholder="Enter email">
+            <input type="password" id="password-input" placeholder="Enter password">
+            <input type="date" id="date-input">
+            <input type="text" id="prefilled-input" value="Initial Value">
+            <input type="text" id="readonly-input" readonly value="Readonly Input">
+            <input type="text" id="disabled-input" disabled placeholder="Disabled input">
+        </div>
+        
+        <div class="section" id="textarea-section">
+            <h2>Textarea Test</h2>
+            <textarea id="textarea-input" rows="4" cols="50" placeholder="Enter multiple lines"></textarea>
+        </div>
+        
+        <div class="section" id="contenteditable-section">
+            <h2>Contenteditable Test</h2>
+            <div id="contenteditable-div" contenteditable="true">Edit this content</div>
+        </div>
+        
+        <div class="section" id="form-section">
+            <h2>Form Submission Test</h2>
+            <form id="test-form">
+                <input type="text" id="form-input" placeholder="Enter text">
+                <button type="submit">Submit</button>
+            </form>
+            <p id="form-output"></p>
+        </div>
+
+        <div class="section" id="delayed-input-section">
+            <h2>Delayed Input Test</h2>
+            <button id="show-delayed-input">Show Delayed Input</button>
+            <div id="delayed-input-container"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('test-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const input = document.getElementById('form-input');
+            document.getElementById('form-output').textContent = 'Submitted: ' + input.value;
+        });
+
+        document.getElementById('show-delayed-input').addEventListener('click', function() {
+            setTimeout(function() {
+                const container = document.getElementById('delayed-input-container');
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.id = 'delayed-input';
+                input.placeholder = 'Delayed input';
+                container.appendChild(input);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
