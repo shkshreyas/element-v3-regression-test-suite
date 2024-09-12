@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightwatch sendKeys() Command Test Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .section { border: 1px solid #ddd; padding: 10px; margin-bottom: 20px; }
+        .hidden { display: none; }
+        .offscreen { position: absolute; left: -9999px; }
+        [contenteditable] { border: 1px solid #ccc; padding: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Page for Nightwatch sendKeys() Command</h1>
+        
+        <div class="section" id="text-input-section">
+            <h2>Text Input Tests</h2>
+            <input type="text" id="simple-input" placeholder="Type here">
+            <input type="password" id="password-input" placeholder="Enter password">
+            <input type="number" id="number-input" placeholder="Enter a number">
+            <input type="email" id="email-input" placeholder="Enter email">
+            <input type="text" id="readonly-input" readonly value="Read-only input">
+            <input type="text" id="disabled-input" disabled placeholder="Disabled input">
+        </div>
+        
+        <div class="section" id="textarea-section">
+            <h2>Textarea Test</h2>
+            <textarea id="textarea-input" rows="4" cols="50" placeholder="Type multiple lines here"></textarea>
+        </div>
+        
+        <div class="section" id="contenteditable-section">
+            <h2>Contenteditable Test</h2>
+            <div id="contenteditable-div" contenteditable="true">Edit this content</div>
+        </div>
+        
+        <div class="section" id="special-keys-section">
+            <h2>Special Keys Test</h2>
+            <input type="text" id="special-keys-input" placeholder="Test special keys here">
+            <p id="key-output">Last key pressed: None</p>
+        </div>
+        
+        <div class="section" id="hidden-input-section">
+            <h2>Hidden Input Test</h2>
+            <input type="text" class="hidden" id="hidden-input" placeholder="Hidden input">
+        </div>
+        
+        <div class="section" id="delayed-input-section">
+            <h2>Delayed Input Test</h2>
+            <button id="show-delayed-input">Show Delayed Input</button>
+            <div id="delayed-input-container"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('special-keys-input').addEventListener('keydown', function(e) {
+            document.getElementById('key-output').textContent = 'Last key pressed: ' + e.key;
+        });
+
+        document.getElementById('show-delayed-input').addEventListener('click', function() {
+            setTimeout(function() {
+                const container = document.getElementById('delayed-input-container');
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.id = 'delayed-input';
+                input.placeholder = 'Delayed input';
+                container.appendChild(input);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
