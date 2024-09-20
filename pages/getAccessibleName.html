@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page for Nightwatch getAccessibleName() Command</title>
+</head>
+<body>
+    <h1>Test Page for Nightwatch getAccessibleName() Command</h1>
+
+    <div id="test-section">
+        <label for="search-input">Country calling code:</label>
+        <input type="text" id="search-input" name="search" aria-label="Country calling code">
+
+        <button id="submit-button" aria-label="Submit search">Search</button>
+
+        <div id="result-area" aria-label="Search results">
+            Results will appear here
+        </div>
+
+        <a href="#" id="help-link" aria-label="Get help with search">Need help?</a>
+
+        <div id="complex-element" role="alert" aria-label="Important notification">
+            <p>This is an important message!</p>
+        </div>
+    </div>
+</body>
+</html>

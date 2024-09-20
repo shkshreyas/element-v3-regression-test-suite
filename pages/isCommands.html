@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page for Nightwatch Element State Commands</title>
+    <style>
+        .hidden { display: none; }
+        .invisible { visibility: hidden; }
+    </style>
+</head>
+<body>
+    <h1>Test Page for Nightwatch Element State Commands</h1>
+    
+    <div id="enabled-disabled-section">
+        <input type="text" id="enabled-input" placeholder="Enabled input">
+        <input type="text" id="disabled-input" disabled placeholder="Disabled input">
+        <button id="enabled-button">Enabled Button</button>
+        <button id="disabled-button" disabled>Disabled Button</button>
+    </div>
+
+    <div id="selected-section">
+        <input type="checkbox" id="unchecked-box" name="checkbox1" value="unchecked">
+        <label for="unchecked-box">Unchecked Box</label>
+        
+        <input type="checkbox" id="checked-box" name="checkbox2" value="checked" checked>
+        <label for="checked-box">Checked Box</label>
+        
+        <select id="select-element">
+            <option value="1">Option 1</option>
+            <option value="2" selected>Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+
+        <input type="radio" id="unselected-radio" name="radio-group" value="unselected">
+        <label for="unselected-radio">Unselected Radio</label>
+        
+        <input type="radio" id="selected-radio" name="radio-group" value="selected" checked>
+        <label for="selected-radio">Selected Radio</label>
+    </div>
+
+    <div id="visibility-section">
+        <p id="visible-paragraph">This paragraph is visible</p>
+        <p id="hidden-paragraph" class="hidden">This paragraph is hidden (display: none)</p>
+        <p id="invisible-paragraph" class="invisible">This paragraph is invisible (visibility: hidden)</p>
+        <div id="visible-div" style="width: 100px; height: 100px; background-color: blue;">Visible div</div>
+        <div id="zero-opacity-div" style="width: 100px; height: 100px; background-color: red; opacity: 0;">Zero opacity div</div>
+    </div>
+</body>
+</html>
