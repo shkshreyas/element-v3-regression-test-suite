@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page for Nightwatch doubleClick() Command</title>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: #ddd;
+            margin: 10px;
+            display: inline-block;
+            text-align: center;
+            line-height: 150px;
+            user-select: none;
+            cursor: pointer;
+        }
+        #color-change-box.active {
+            background-color: #ff0000;
+        }
+        #text-change-box.active::after {
+            content: " (Double Clicked)";
+        }
+        #counter-box.active {
+            font-weight: bold;
+        }
+        #input-box {
+            width: 200px;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Page for Nightwatch doubleClick() Command</h1>
+    
+    <div id="test-section">
+        <div id="color-change-box" class="box">Color Change Box</div>
+        <div id="text-change-box" class="box">Text Change Box</div>
+        <div id="counter-box" class="box">Double Click Count: 0</div>
+        <input type="text" id="input-box" value="Double click to select all">
+        <div id="delayed-box" class="box" style="display: none;">Delayed Box</div>
+    </div>
+
+    <script>
+        document.getElementById('color-change-box').addEventListener('dblclick', function() {
+            this.classList.toggle('active');
+        });
+
+        document.getElementById('text-change-box').addEventListener('dblclick', function() {
+            this.classList.add('active');
+            this.innerHTML = '(Double Clicked)'
+        });
+
+        let clickCount = 0;
+        document.getElementById('counter-box').addEventListener('dblclick', function() {
+            clickCount++;
+            this.textContent = `Double Click Count: ${clickCount}`;
+            this.classList.add('active');
+        });
+
+        document.getElementById('input-box').addEventListener('dblclick', function() {
+            this.select();
+        });
+
+        setTimeout(() => {
+            document.getElementById('delayed-box').style.display = 'inline-block';
+        }, 500);
+
+        document.getElementById('delayed-box').addEventListener('dblclick', function() {
+            this.textContent = 'Double Clicked!';
+        });
+    </script>
+</body>
+</html>

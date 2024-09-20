@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page for Nightwatch waitUntil() Command</title>
+    <style>
+        .hidden { display: none; }
+        .invisible { visibility: hidden; }
+    </style>
+</head>
+<body>
+    <h1>Test Page for Nightwatch waitUntil() Command</h1>
+    
+    <div id="test-section">
+        <button id="toggle-visibility">Toggle Visibility</button>
+        <button id="toggle-presence">Toggle Presence</button>
+        <button id="toggle-enabled">Toggle Enabled</button>
+        <button id="toggle-selected">Toggle Selected</button>
+        <div id="visibility-always">Visibility Test</div>
+        <div id="visibility-test" class="hidden">Visibility Test</div>
+        <div id="presence-test">Presence Test</div>
+        <input type="text" id="enabled-test" disabled>
+        <input type="checkbox" id="selected-test">
+
+        <div id="delayed-element" style="display: none;">Delayed Element</div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById('delayed-element').style.display = 'block';
+        }, 500);
+
+        document.getElementById('toggle-visibility').addEventListener('click', () => {
+            const element = document.getElementById('visibility-test');
+            element.classList.toggle('hidden');
+        });
+
+        document.getElementById('toggle-presence').addEventListener('click', () => {
+            const element = document.getElementById('presence-test');
+            if (element) {
+                element.remove();
+            } else {
+                const newElement = document.createElement('div');
+                newElement.id = 'presence-test';
+                newElement.textContent = 'Presence Test';
+                document.getElementById('test-section').appendChild(newElement);
+            }
+        });
+
+        document.getElementById('toggle-enabled').addEventListener('click', () => {
+            const element = document.getElementById('enabled-test');
+            element.disabled = !element.disabled;
+        });
+
+        document.getElementById('toggle-selected').addEventListener('click', () => {
+            const element = document.getElementById('selected-test');
+            element.checked = !element.checked;
+        });
+    </script>
+</body>
+</html>
