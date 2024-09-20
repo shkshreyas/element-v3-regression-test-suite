@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page for Nightwatch getAriaRole() Command</title>
+</head>
+<body>
+    <h1>Test Page for Nightwatch getAriaRole() Command</h1>
+
+    <div id="test-section">
+        <input type="search" id="search-input" name="search" role="combobox" aria-label="Search">
+
+        <button id="submit-button" role="button">Search</button>
+
+        <div id="menu" role="menu">
+            <div role="menuitem">Item 1</div>
+            <div role="menuitem">Item 2</div>
+            <div role="menuitem">Item 3</div>
+        </div>
+
+        <div id="alert" role="alert">This is an important message!</div>
+
+        <a href="#" id="nav-link" role="navigation">Navigation Link</a>
+
+        <form id="login-form" role="form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <button type="submit">Log In</button>
+        </form>
+
+        <div id="no-role-div">This div has no explicit role</div>
+    </div>
+</body>
+</html>
