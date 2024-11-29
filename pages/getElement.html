@@ -5,38 +5,157 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nightwatch Element Commands Test Page</title>
     <style>
-        .container { margin: 20px; }
-        .hidden { display: none; }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            color: #343a40;
+            line-height: 1.6;
+        }
+
+        .container {
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 10px;
+            background: #e3f2fd;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        ul li:hover {
+            transform: scale(1.05);
+            background: #bbdefb;
+        }
+
+        #sibling-container p {
+            padding: 10px;
+            background: #f1f8e9;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        #sibling-container p:hover {
+            background: #dcedc8;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #empty-container {
+            height: 100px;
+            background: #eceff1;
+            border: 2px dashed #90a4ae;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-style: italic;
+            color: #607d8b;
+        }
+
+        
+        :host {
+            display: block;
+        }
+
+        ::slotted(p) {
+            color: #0288d1;
+            font-weight: bold;
+        }
+
+        #shadow-host {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fbe9e7;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        
+        .action-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #42a5f5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .action-button:hover {
+            background: #1e88e5;
+        }
+
+        
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <h1>Nightwatch Element Commands Test Page</h1>
+        <p>Explore various interactive elements below:</p>
+
+        <h2>Parent List</h2>
         <ul id="parent-list">
             <li>First Child</li>
             <li>Middle Child</li>
             <li>Last Child</li>
         </ul>
 
+        <h2>Sibling Container</h2>
         <div id="sibling-container">
             <p>First Paragraph</p>
             <p>Second Paragraph</p>
             <p>Third Paragraph</p>
         </div>
 
-        <div id="empty-container"></div>
+        <h2>Empty Container</h2>
+        <div id="empty-container">Drag elements here</div>
 
-        <template id="shadow-host">
-            <div>
-                <p>Shadow DOM content</p>
-            </div>
-        </template>
+        <h2>Shadow DOM</h2>
+        <div id="shadow-host">
+            <template>
+                <slot><p>Shadow DOM content</p></slot>
+            </template>
+        </div>
+
+        <a href="#" class="action-button">Learn More</a>
     </div>
 
     <script>
         // Create a shadow root
         const shadowHost = document.getElementById('shadow-host');
-        const shadowRoot = shadowHost.attachShadow({mode: 'open'});
-        shadowRoot.innerHTML = '<p>Shadow DOM paragraph</p>';
+        const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
+        shadowRoot.innerHTML = `
+            <style>
+                p {
+                    color: #f44336;
+                    font-family: 'Courier New', monospace;
+                }
+            </style>
+            <p>Shadow DOM paragraph</p>
+        `;
     </script>
 </body>
 </html>
